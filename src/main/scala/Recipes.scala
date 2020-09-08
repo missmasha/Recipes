@@ -15,10 +15,13 @@ object Recipes extends App {
   def processSeq(mySeq:Seq[String]) = {
 
     val firstSeq = mySeq
-      .filter(x => x == x.toUpperCase || x.startsWith("    "))
+      .filter(x => x == x.toUpperCase || x.startsWith(" " * 4))
       .filter(x => x != "")
       .filter(x => !(x contains "*"))
       .filter(x => !(x contains "\""))
+      .filter(x => !x.startsWith(" " * 5))
+      .filter(x => !x.startsWith("([0-9])"))
+
     firstSeq
 
 //    var isCapital = false
@@ -34,13 +37,17 @@ object Recipes extends App {
 //      isCapital = string.exists(_.isUpper)
 //      hasParagraph = string.startsWith("    ")
 //
-//      if (isLastCapital && hasParagraph == true) lastString.foreach(println)
+//      do {
+//        lastString = hasParagraph(string)
+//      }
+//
+//      if (isLastCapital && hasParagraph == true)
+//        println(string)
 //      while (string == hasParagraph) string
 //      lastString = string
 //
 //      newSeq
 //    }
-
   }
 
   def saveSeq(destName:String, mySeq:Seq[String]) = {
