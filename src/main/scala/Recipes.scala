@@ -14,7 +14,11 @@ object Recipes extends App {
 
   def processSeq(mySeq:Seq[String]) = {
 
-    val firstSeq = mySeq.filter(x => x == x.toUpperCase || x.startsWith("    ")).filter(x => x != "")
+    val firstSeq = mySeq
+      .filter(x => x == x.toUpperCase || x.startsWith("    "))
+      .filter(x => x != "")
+      .filter(x => !(x contains "*"))
+      .filter(x => !(x contains "\""))
     firstSeq
 
 //    var isCapital = false
