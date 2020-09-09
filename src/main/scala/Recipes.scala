@@ -14,15 +14,18 @@ object Recipes extends App {
 
   def processSeq(mySeq:Seq[String]) = {
 
+
     val firstSeq = mySeq
       .filter(x => x == x.toUpperCase || x.startsWith(" " * 4))
       .filter(x => x != "")
-      .filter(x => !(x contains "*"))
-      .filter(x => !(x contains "\""))
-      .filter(x => !x.startsWith(" " * 5))
-      .filter(x => !x.startsWith("([0-9])"))
+      .filterNot(_ contains "*")
+      .filterNot(_ contains "\"")
+      .filterNot(_ contains "\"")
+      .filterNot(_.startsWith(" " * 5))
+      .filterNot(_ matches "(^[0-9]+.*)")
 
     firstSeq
+
 
 //    var isCapital = false
 //    var hasParagraph = false
